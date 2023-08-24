@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import static java.lang.Math.abs;
 
@@ -35,15 +36,14 @@ public class HighwayFinder extends JavaPlugin {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, String label, String[] args) {
         MiniMessage miniMessage = MiniMessage.miniMessage(); // Create the MiniMessage instance
         if (label.equalsIgnoreCase("highway")) {
-            if (!(sender instanceof Player)) {
+            if (!(sender instanceof Player player)) {
                 sender.sendMessage(miniMessage.deserialize("This command can only be used by players."));
                 return true;
             }
 
-            Player player = (Player) sender;
             if (!player.hasPermission("highwayfinder.use")) {
                 player.sendMessage(miniMessage.deserialize("<gray>You do not have permission to use this command.</gray>"));
                 return true;
@@ -101,7 +101,6 @@ public class HighwayFinder extends JavaPlugin {
 
         if (distanceToWest < closestDistance) {
             closestHighway = "<bold><color:#1D72F2>West</color></bold>";
-            closestDistance = distanceToWest;
             direction = z<0 ? "<green>South</green>": "<green>North</green>";
             distance = z;
         }
