@@ -1,0 +1,14 @@
+name: HighwayFinder
+version: '${version}'
+main: me.mcswede.highwayfinder.HighwayFinder
+api-version: '1.20'
+authors: [ McSwede ]
+description: Nether highway finder
+commands:
+  highway:
+    description: Get directions to the nearest highway in the Nether.
+    permission: highwayfinder.use
+permissions:
+  highwayfinder.use:
+    description: Allows usage of the /highway command.
+    default: op

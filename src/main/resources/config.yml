@@ -1,0 +1,12 @@
+# HighwayFinder
+
+# The center coordinates for the nether highway
+center:
+  x: 0
+  z: 0
+  y: 0
+
+# The dimensions of the highway
+dimensions:
+  width: 0
+  height: 0
